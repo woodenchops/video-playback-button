@@ -1,0 +1,38 @@
+video {
+    max-width: 900px;
+}
+button {
+    display: block;
+    background-color: cornflowerblue;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    height: 50px;
+    position: relative;
+    width: 200px;
+    text-transform: uppercase;
+}
+
+button:after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color:cornflowerblue;
+    position: absolute;
+    z-index: 9;
+    right: -50px;
+    top: 0;
+    border-left: 1px solid #fff;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+button.playing:after {
+    content: url("./pause-black.svg");
+}
+
+button.paused:after {
+    content: url("./play-black.svg");
+}

@@ -1,0 +1,16 @@
+<svg version="1.1" id="play-btn-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62 62" style="enable-background:new 0 0 62 62;" xml:space="preserve" fill="#fff">
+                    <style type="text/css">
+                        .st0 {
+                            opacity: 0;
+                            fill: none
+                        }
+
+                        .st1 {
+                            fill: #fff;
+                        }
+                    </style>
+                    <circle class="st0" cx="31.2" cy="31.7" r="30"></circle>
+                    <g>
+                        <path class="st1" d="M45.8,31.7L24,46.9V16.6L45.8,31.7z"></path>
+                    </g>
+                </svg>
