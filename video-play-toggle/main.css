@@ -1,7 +1,17 @@
+/******************************
+
+NOTE:
+
+ingore the video styles
+
+/******************************/
+
 video {
     max-width: 900px;
 }
-button {
+
+
+button.video-play-button {
     display: block;
     background-color: cornflowerblue;
     padding: 10px 20px;
@@ -14,7 +24,7 @@ button {
     text-transform: uppercase;
 }
 
-button:after {
+button.video-play-button:after {
     content: "";
     width: 50px;
     height: 50px;
@@ -29,10 +39,31 @@ button:after {
     background-repeat: no-repeat;
 }
 
-button.playing:after {
+button.video-play-button.playing:after {
     content: url("./pause-black.svg");
 }
 
-button.paused:after {
+button.video-play-button.paused:after {
     content: url("./play-black.svg");
 }
+
+
+button.video-play-button.activated {
+    transition: 1s;
+    opacity: 0;
+}
+
+/******************************
+
+NOTE:
+
+#app is the container for the video. Switch this out for whatever
+element is the container for the video.
+
+/******************************/
+
+#app:hover button.video-play-button.activated {
+    opacity: 1;
+}
+
+
