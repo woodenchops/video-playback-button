@@ -21,8 +21,8 @@
       return err;
     }
 
-    this.setterErrorMessage = function(property) {
-      console.error(property + ' only accepts a boolean value - please provide a boolean value - you passed the value: '+property+' => typeof: '+typeof property+' - this error message came from the "VideoPlayButton" class');
+    this.setterErrorMessage = function(property, valPassed) {
+      console.error(property + ' only accepts a boolean value - please provide a boolean value - you passed the value: '+ valPassed+' => typeof: '+typeof valPassed+' - this error message came from the "VideoPlayButton" class');
     };
 
     this.setActiveState = function(val) {
@@ -31,7 +31,7 @@
       } else if(val == undefined){
         this._activeState = false;
       } else {
-        this.setterErrorMessage('playing');
+        this.setterErrorMessage('playing', props.playing);
       }
     };
 
@@ -41,7 +41,7 @@
       } else if(val == undefined) {
         this._mute = true;
       } else {
-        this.setterErrorMessage('mute');
+        this.setterErrorMessage('mute', props.mute);
       }
     };
 
@@ -56,7 +56,7 @@
       } else if(val == undefined) {
         this._controls = true;
       } else {
-        this.setterErrorMessage('controls');
+        this.setterErrorMessage('controls', props.controls);
       }
     };
 
