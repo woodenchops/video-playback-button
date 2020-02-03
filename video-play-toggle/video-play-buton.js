@@ -49,6 +49,21 @@
       return this._mute;
     };
 
+
+    this.setControls = function(val) {
+      if(typeof val === 'boolean') {
+        this._controls = val;
+      } else if(val == undefined) {
+        this._controls = true;
+      } else {
+        this.setterErrorMessage('controls');
+      }
+    };
+
+    this.getControls = function() {
+      return this._controls;
+    };
+
     this.setHideOnPlay = function(val) {
 
       if(typeof val === 'boolean') {
@@ -84,6 +99,11 @@
         this._video.muted = this.getMute();
     }.bind(this);
 
+    this.controls = function(val) {
+      this.setControls(val);
+      this._video.controls = this.getControls();
+  }.bind(this);
+
     this.togglePlayPause = function() {
       if(this._activeState) {
         this.play();
@@ -106,13 +126,29 @@
       }.bind(this)
     );
 
+    // add seperate event handlers when video element is clicked - start
+
+    this._video.addEventListener("play", function() {
+      this.play();
+      }.bind(this)
+    );
+
+    this._video.addEventListener("pause", function() {
+      this.pause();
+      }.bind(this)
+    );
+
+      // add seperate event handlers when video element is clicked - end
+
     this.init = function() {
       this.setActiveState(props.playing || false);
       this.mute(props.mute);
+      this.controls(props.controls);
       this.setHideOnPlay(props.hideOnPlay);
       this.togglePlayPause();
       console.log('VideoPlayButton class instantiated :)');
       console.log('muted', this.getMute());
+      console.log('controls', this.getControls());
       console.log('playing', this.getActiveState());
     };
 
@@ -122,7 +158,8 @@
       play: this.play,
       pause: this.pause,
       toggle: this.toggleActiveState,
-      mute: this.mute
+      mute: this.mute,
+      controls: this.controls
     };
 
   }
@@ -133,6 +170,7 @@
     video: "#myVideo",
     playing: false,
     mute: true,
+    controls: true,
     hideOnPlay: true
   });
 
